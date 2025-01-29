@@ -12,11 +12,11 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="gallery">
+    <div className="gal-container">
       <h1>Gallery</h1>
-      <div className="gallery-grid">
+      <div className="gal-grid">
         {photos.map((photo) => (
-          <div key={photo.id} className="gallery-item">
+          <div key={photo.id} className="gal-item">
             <img src={photo.thumbnailUrl} alt={photo.title} />
             <p>{photo.title}</p>
           </div>

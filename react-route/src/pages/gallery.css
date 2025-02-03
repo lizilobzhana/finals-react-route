@@ -51,6 +51,27 @@
   font-weight: 500;
   line-height: 1.5;
 }
+.favouriteBtn {
+  background-color: #f1f1f1;
+  border: 2px solid #ccc;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favouriteBtn:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
+}
+
+.favouriteBtn:active {
+  background-color: #d0d0d0;
+  border-color: #666;
+}
 
 @media (max-width: 900px) {
   .gal-grid {

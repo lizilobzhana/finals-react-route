@@ -28,6 +28,8 @@
   background: linear-gradient(to bottom, #ffffff, #e0e0e0);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid red;
+  cursor: pointer;
 }
 
 .gal-item:hover {

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import useFetch from "../hooks/useFetch";
 import "./gallery.css";
-const Gallery = () => {
-  const [photos, setPhotos] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos?_limit=4")
-      .then((response) => setPhotos(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+const Gallery = () => {
+  const {
+    data: photos,
+    loading,
+    error,
+  } = useFetch("https://jsonplaceholder.typicode.com/photos?_limit=4");
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="gal-container">

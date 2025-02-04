@@ -28,7 +28,6 @@
   background: linear-gradient(to bottom, #ffffff, #e0e0e0);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid red;
   cursor: pointer;
 }
 
@@ -51,26 +50,34 @@
   font-weight: 500;
   line-height: 1.5;
 }
-.favouriteBtn {
-  background-color: #f1f1f1;
-  border: 2px solid #ccc;
-  color: #333;
+.favoriteBtn {
+  background-color: #4caf50;
+  color: white;
   padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.favouriteBtn:hover {
-  background-color: #e0e0e0;
-  border-color: #999;
+.favoriteBtn:hover {
+  background-color: #45a049;
 }
 
-.favouriteBtn:active {
-  background-color: #d0d0d0;
-  border-color: #666;
+.unfavoriteBtn {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.unfavoriteBtn:hover {
+  background-color: #d32f2f;
 }
 
 @media (max-width: 900px) {

@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
+import useFetch from "../hooks/useFetch";
 import axios from "axios";
 import "./gallery.css";
 
 const Gallery = () => {
-  const [photos, setPhotos] = useState([]);
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos?_limit=4")
-      .then((response) => setPhotos(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+  const {
+    data: photos,
+    loading,
+    error,
+  } = useFetch("https://jsonplaceholder.typicode.com/photos?_limit=4");
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
   const toggleFavorite = (photo) => {
     let updatedFavorites;
     if (favorites.some((fav) => fav.id === photo.id)) {
@@ -35,7 +36,11 @@ const Gallery = () => {
             <img src={photo.thumbnailUrl} alt={photo.title} />
             <p>{photo.title}</p>
             <button
-              className="favouriteBtn"
+              className={
+                favorites.some((fav) => fav.id === photo.id)
+                  ? "unfavoriteBtn"
+                  : "favoriteBtn"
+              }
               onClick={() => toggleFavorite(photo)}
             >
               {favorites.some((fav) => fav.id === photo.id)
